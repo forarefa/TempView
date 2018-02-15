@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Temperature Calculator</string>
+    <string-array name="tempUnit">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+</resources>
