@@ -12,20 +12,22 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
+    String inputType = "Celsius";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final EditText edtTemp = (EditText) findViewById(R.id.edtTemp);
-        final Spinner spnUnit = (Spinner) findViewById(R.id.spnUnit);
+        // final Spinner spnUnit = (Spinner) findViewById(R.id.spnUnit);
         final Button btnSubmit = (Button) findViewById(R.id.btnSubmit);
 
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<String>(MainActivity.this,
+        /*ArrayAdapter<String> unitAdapter = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.tempUnit));
 
         unitAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnUnit.setAdapter(unitAdapter);
+        spnUnit.setAdapter(unitAdapter);*/
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 if (edtTemp.getText().toString().trim().equals(""))
                     edtTemp.setError("ใส่อุณหภูมิที่ต้องการคำนวณ");
                 else {
-                    Temperature temp = new Temperature(Double.parseDouble(edtTemp.getText().toString()), spnUnit.getSelectedItem().toString());
+                    Temperature temp = new Temperature(Double.parseDouble(edtTemp.getText().toString()), inputType);
                     Intent i = new Intent(getApplicationContext(), ResultActivity.class);
                     i.putExtra("Celsius", String.valueOf(temp.getCelsius()));
                     i.putExtra("Fahrenheit", String.valueOf(temp.getFahrenheit()));
@@ -47,4 +49,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void changeInput(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        switch(view.getId()) {
+            case R.id.rbtnCelsius:
+                if (checked)
+                    inputType = "Celsius";
+                break;
+            case R.id.rbtnFahrenheit:
+                if (checked)
+                    inputType = "Fahrenheit";
+                break;
+            case R.id.rbtnKelvin:
+                if (checked)
+                    inputType = "Kelvin";
+                break;
+        }
+    }
 }

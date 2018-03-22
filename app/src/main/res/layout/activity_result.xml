@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.palmz.tempview.ResultActivity"
-    android:padding="20dp">
+    tools:context="com.example.palmz.tempview.ResultActivity">
 
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="50dp">
+        android:padding="40dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -22,7 +25,41 @@
             android:textStyle="bold"
             android:textSize="20sp"
             />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <CheckBox
+                android:id="@+id/chkCelsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Celsius"
+                android:onClick="changeResult"
+                android:checked="true"/>
+
+            <CheckBox
+                android:id="@+id/chkFahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fahrenheit"
+                android:onClick="changeResult"
+                android:checked="true"/>
+
+            <CheckBox
+                android:id="@+id/chkKelvin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kelvin"
+                android:onClick="changeResult"
+            android:checked="true"/>
+
+        </LinearLayout>
         <android.support.v7.widget.CardView
+            android:id="@+id/cardCelsius"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardCornerRadius="7dp"
             android:layout_width="match_parent"
@@ -52,6 +89,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
+            android:id="@+id/cardFahrenheit"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardCornerRadius="7dp"
             android:layout_width="match_parent"
@@ -81,6 +119,7 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
         <android.support.v7.widget.CardView
+            android:id="@+id/cardKelvin"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardCornerRadius="7dp"
             android:layout_width="match_parent"
@@ -111,13 +150,15 @@
         </android.support.v7.widget.CardView>
 
     </LinearLayout>
-    <TextView
+    </ScrollView>
+
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:text="Copyright © ส้มดอง แอ๊ะแอ๋ 2018, All rights reserved."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"/>-->
 
 </android.support.constraint.ConstraintLayout>

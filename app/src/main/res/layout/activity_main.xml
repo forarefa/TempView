@@ -30,22 +30,52 @@
             android:hint="ใส่อุณหภูมิ"
             />
 
-        <Spinner
+        <!--<Spinner
             android:id="@+id/spnUnit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:gravity="center"
             >
-        </Spinner>
+        </Spinner>-->
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left">
+
+            <RadioButton
+                android:id="@+id/rbtnCelsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Celsius"
+                android:onClick="changeInput"
+                android:checked="true"
+                />
+
+            <RadioButton
+                android:id="@+id/rbtnFahrenheit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fahrenheit"
+                android:onClick="changeInput"
+                />
+
+            <RadioButton
+                android:id="@+id/rbtnKelvin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kelvin"
+                android:onClick="changeInput"
+                />
+        </RadioGroup>
 
         <Button
             android:id="@+id/btnSubmit"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:background="@drawable/button"
+            android:textColor="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
             android:paddingLeft="30sp"
             android:paddingRight="30sp"
             android:textSize="20sp"
