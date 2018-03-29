@@ -1,97 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.palmz.tempview.MainActivity"
-    android:padding="20dp">
+    android:id="@+id/drawer_layout"
+    tools:context="com.example.palmz.tempview.MainActivity">
 
-    <LinearLayout
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="5dp"
-        android:gravity="center"
-       app:layout_constraintVertical_bias="0.3"
-        >
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp">
 
-        <EditText
-            android:id="@+id/edtTemp"
-            android:textSize="20sp"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:inputType="number|numberDecimal"
-            android:textAlignment="center"
-            android:hint="ใส่อุณหภูมิ"
-            />
-
-        <!--<Spinner
-            android:id="@+id/spnUnit"
+        <LinearLayout
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
             android:gravity="center"
+           app:layout_constraintVertical_bias="0.3"
             >
-        </Spinner>-->
 
-        <RadioGroup
+            <EditText
+                android:id="@+id/edtTemp"
+                android:textSize="20sp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:inputType="number|numberDecimal"
+                android:textAlignment="center"
+                android:hint="ใส่อุณหภูมิ"
+                />
+
+            <!--<Spinner
+                android:id="@+id/spnUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="center"
+                >
+            </Spinner>-->
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left">
+
+                <RadioButton
+                    android:id="@+id/rbtnCelsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Celsius"
+                    android:onClick="changeInput"
+                    android:checked="true"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rbtnFahrenheit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fahrenheit"
+                    android:onClick="changeInput"
+                    />
+
+                <RadioButton
+                    android:id="@+id/rbtnKelvin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kelvin"
+                    android:onClick="changeInput"
+                    />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:background="@drawable/button"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30sp"
+                android:paddingRight="30sp"
+                android:textSize="20sp"
+                android:text="คำนวณ"
+                android:layout_marginTop="20dp"
+                 />
+
+        </LinearLayout>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="left">
+            android:textSize="12sp"
+            android:text="Copyright © ส้มดอง แอ๊ะแอ๋ 2018, All rights reserved."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
-            <RadioButton
-                android:id="@+id/rbtnCelsius"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Celsius"
-                android:onClick="changeInput"
-                android:checked="true"
-                />
+    </android.support.constraint.ConstraintLayout>
 
-            <RadioButton
-                android:id="@+id/rbtnFahrenheit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Fahrenheit"
-                android:onClick="changeInput"
-                />
+    <ListView
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/cardview_light_background">
+    </ListView>
 
-            <RadioButton
-                android:id="@+id/rbtnKelvin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kelvin"
-                android:onClick="changeInput"
-                />
-        </RadioGroup>
-
-        <Button
-            android:id="@+id/btnSubmit"
-            android:background="@drawable/button"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="30sp"
-            android:paddingRight="30sp"
-            android:textSize="20sp"
-            android:text="คำนวณ"
-            android:layout_marginTop="20dp"
-             />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12sp"
-        android:text="Copyright © ส้มดอง แอ๊ะแอ๋ 2018, All rights reserved."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-</android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.DrawerLayout>

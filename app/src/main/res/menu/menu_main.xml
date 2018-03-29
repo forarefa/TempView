@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/file"
+        android:title="Menu 1">
+        <menu>
+            <item
+                android:id="@+id/mnuNew"
+                android:title="Sub Menu 1" />
+            <item
+                android:id="@+id/mnuOpen"
+                android:title="Sub Menu 2" />
+        </menu>
+    </item>
+</menu>

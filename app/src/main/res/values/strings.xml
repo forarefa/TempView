@@ -5,4 +5,6 @@
         <item>Fahrenheit</item>
         <item>Kelvin</item>
     </string-array>
+    <string name="open_drawer" />
+    <string name="close_drawer" />
 </resources>
