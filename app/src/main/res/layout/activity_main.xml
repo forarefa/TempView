@@ -97,7 +97,8 @@
             android:text="Copyright © ส้มดอง แอ๊ะแอ๋ 2018, All rights reserved."
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent"
+            android:onClick="contactUs"/>
 
     </android.support.constraint.ConstraintLayout>
 

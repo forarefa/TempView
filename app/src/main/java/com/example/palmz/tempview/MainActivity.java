@@ -1,9 +1,15 @@
 package com.example.palmz.tempview;
 
+import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -140,5 +146,44 @@ public class MainActivity extends AppCompatActivity {
                     inputType = "Kelvin";
                 break;
         }
+    }
+
+    public void showNotification() {
+        Intent intent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.facebook.com/palmz.haxker"));
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+
+        Notification notification =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("Temperature Calculator")
+                        .setContentText("Click here to contact us!")
+                        .setAutoCancel(true)
+                        .setContentIntent(pendingIntent)
+                        .build();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1000, notification);
+    }
+
+    public void showDialog() {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(MainActivity.this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog, null);
+        Button btnContact = (Button) mView.findViewById(R.id.btnContact);
+        mBuilder.setView(mView);
+        final AlertDialog dialog = mBuilder.create();
+        dialog.show();
+        btnContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showNotification();
+            }
+        });
+
+    }
+
+    public void contactUs(View view) {
+        showDialog();
     }
 }
