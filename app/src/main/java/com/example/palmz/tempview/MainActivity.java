@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     String inputType = "Celsius";
 
-    private  String [] mDrawerTitle = {"Home", "Contact"};
+    private  String [] mDrawerTitle = {"Hello World", "Hello World", "Hello World"};
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private ListView mListView;
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 mDrawerLayout.closeDrawers();
                 Toast.makeText(getApplicationContext(),
-                        "Go" + " to " + itemValue + " !!!!!", Toast.LENGTH_SHORT)
+                        "Select " + itemValue + " with index " + position, Toast.LENGTH_SHORT)
                         .show();
             }
         });
